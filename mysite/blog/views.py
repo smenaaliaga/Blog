@@ -1,9 +1,11 @@
 from django.shortcuts import render, HttpResponse
 from .models import Post 
+import datetime
 
 def home(request) :
     posts = Post.objects.all()
-    return render(request, "blog/home.html", {'posts' : posts})
+    date = datetime.datetime.now()
+    return render(request, "blog/home.html", {'posts' : posts, 'date' : date})
 
 def post(request, id) :
     post = Post.objects.get(id=id)
