@@ -10,11 +10,15 @@
     <div>
         Hora de visita : {{ date }}
     </div>
-    {% for post in posts %}
-    <div>
-        <h2>{{ post.title }}</h2>
-        <p><a href="/blog/{{ post.id }}">Leer</a></p>
-    </div>
-    {% endfor %}
+    <ul>
+        <li>
+            {% for post in posts %}
+            <div>
+                <h3>{{ post.title }}</h3>
+                <p><a href="/{{ post.published_date.year }}/{{ post.published_date.month }}/{{ post.id }}">Leer</a></p>
+            </div>
+            {% endfor %}
+        </li>
+    </ul>
 </body>
 </html>

@@ -1,10 +1,11 @@
 from django.contrib import admin
 from django.urls import path
-from blog.views import home, post, year_posts
+from blog.views import home, year_posts, month_posts, detail_posts
 
 urlpatterns = [
     path('', home),
-    path('post/<id>', post),
     path('<int:year>/', year_posts),
+    path('<int:year>/<int:month>/', month_posts),
+    path('<int:year>/<int:month>/<id>/', detail_posts),
     path('admin/', admin.site.urls),
 ]
