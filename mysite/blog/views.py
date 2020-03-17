@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse
-from .models import Post 
+from .models import Post    
 import datetime, calendar
 
 def home(request) :
