@@ -6,14 +6,23 @@ STATUS = (
     (1, "Published")
 )
 
+class Category(models.Model) :
+    category = models.CharField(max_length=200, verbose_name="Categoria")
+
+    class Meta :
+        verbose_name = "Categoria"
+        verbose_name_plural = "Categorias"
+
+    def __str__(self) :
+        return self.category
+
 class Post(models.Model) :
     title = models.CharField(max_length=200, verbose_name="Título")
-    slug = models.SlugField(max_length=200, unique=True)
-    author = models.ForeignKey(User, on_delete= models.CASCADE,related_name='blog_posts')
+    category = models.ForeignKey(Category, on_delete=models.DO_NOTHING, verbose_name="Categoria")
     content = models.TextField(verbose_name="Contenido")
     published_date = models.DateTimeField(
             default=timezone.now)
-    status = models.IntegerField(choices=STATUS, default=
+    status = models.IntegerField(choices=STATUS, default=0)
 
     def publish(self):
         self.published_date = timezone.now()
@@ -25,6 +34,3 @@ class Post(models.Model) :
     
     def __str__(self) :
         return self.title
-
-class Category(models.Model) :
-    category = models.CharField(max_length=200, verbose_name="Categoria")
