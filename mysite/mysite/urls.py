@@ -7,5 +7,5 @@ urlpatterns = [
     path('<int:year>/', year_posts),
     path('<int:year>/<int:month>/', month_posts),
     path('<int:year>/<int:month>/<id>/', detail_posts),
-    path('admin/', admin.site.urls),
+    path('skynet/', admin.site.urls),
 ]
