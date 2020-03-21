@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'django_mathjax',
 ]
 
 MIDDLEWARE = [
@@ -113,6 +114,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+MATHJAX_ENABLED = True
 
 
 # Static files (CSS, JavaScript, Images)
