@@ -2,8 +2,8 @@ from django.db import models
 from django.utils import timezone
 
 STATUS = (
-    (0, "Hidden"),
-    (1, "Published")
+    (0, "Oculto"),
+    (1, "Publicado")
 )
 
 class Category(models.Model) :
@@ -18,11 +18,11 @@ class Category(models.Model) :
 
 class Post(models.Model) :
     title = models.CharField(max_length=200, verbose_name="Título")
-    category = models.ForeignKey(Category, on_delete=models.DO_NOTHING, verbose_name="Categoria", help_text="Seleccione categoria")
+    category = models.ForeignKey(Category, on_delete=models.DO_NOTHING, verbose_name="Categoria", 
+    help_text="Seleccione categoria")
     content = models.TextField(verbose_name="Contenido")
-    published_date = models.DateTimeField(
-            default=timezone.now)
-    status = models.IntegerField(choices=STATUS, default=0)
+    published_date = models.DateTimeField(default=timezone.now, verbose_name="Fecha publicación")
+    status = models.IntegerField(choices=STATUS, default=0, verbose_name="Estado")
 
     def publish(self):
         self.published_date = timezone.now()
