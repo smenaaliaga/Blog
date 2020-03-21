@@ -18,7 +18,7 @@ class Category(models.Model) :
 
 class Post(models.Model) :
     title = models.CharField(max_length=200, verbose_name="Título")
-    category = models.ForeignKey(Category, on_delete=models.DO_NOTHING, verbose_name="Categoria")
+    category = models.ForeignKey(Category, on_delete=models.DO_NOTHING, verbose_name="Categoria", help_text="Seleccione categoria")
     content = models.TextField(verbose_name="Contenido")
     published_date = models.DateTimeField(
             default=timezone.now)
