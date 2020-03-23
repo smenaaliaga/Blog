@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from blog.views import home, year_posts, month_posts, detail_posts
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', home),
