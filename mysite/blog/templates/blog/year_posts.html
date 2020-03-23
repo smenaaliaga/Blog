@@ -1,21 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entradas</title>
-</head>
-<body>
-    <h2>Entradas del año {{ year }}</h2>
-    <ul>
-        <li>
-            {% for post in posts %}
-            <div>
-                <h3>{{ post.title }}</h3>
-                <p><a href="/{{ post.published_date.year }}/{{ post.published_date.month }}/{{ post.id }}">Leer</a></p>
-            </div>
-            {% endfor %}
-        </li>
-    </ul>
-</body>
-</html>
+{% extends "blog\base_generic.html" %}
+
+{% block content %}
+
+<h3>Entradas {{ year }}</h3>
+
+    {% for post in posts %}
+    <table class="table">
+        <tr>
+            <th scope="col">Titulo</th>
+            <th scope="col">Detalle</th>
+            <th scope="col">Acción</th>
+        </tr>
+        <tr>
+            <th scope="row">{{ post.title }}</th>
+            <td>
+                {{ post.content }}
+            </td>
+            <td>
+                <p><a href="/{{ post.published_date.year }}/{{ post.published_date.month }}/{{ post.id }}">Ver post</a></p>
+            </td>
+        </tr>
+    </table>
+    {% endfor %}
+    
+{% endblock %}
