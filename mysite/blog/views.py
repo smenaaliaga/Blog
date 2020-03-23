@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, Http404
 from .models import Post    
 import datetime, calendar
 
@@ -17,7 +17,10 @@ def month_posts(request, year, month) :
     return render(request, "blog/month_posts.html", {'posts' : posts, 'year' : year, 'month' : month, 'month_name' : month_name})
 
 def detail_posts(request, year, month, id) :
-    post = Post.objects.get(id = id)
+    try :
+        post = Post.objects.get(id = id)
+    except Post.DoesNotExist :
+        raise Http404("No existe el contenido solicitado")
     return render(request, "blog/detail_posts.html", {'post' : post})
 
 

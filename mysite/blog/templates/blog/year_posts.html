@@ -4,6 +4,8 @@
 
 <h3>Entradas {{ year }}</h3>
 
+    {% if posts %}
+
     {% for post in posts %}
     <table class="table">
         <tr>
@@ -22,5 +24,9 @@
         </tr>
     </table>
     {% endfor %}
+
+    {% else %}
+        <p>No hay entradas.</p>
+    {% endif %} 
     
 {% endblock %}

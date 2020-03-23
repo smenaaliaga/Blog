@@ -2,10 +2,15 @@
 
 {% block content %}
 
+{% if post %}
 
 <h3>{{ post.title }}</h3>
 <p>{{ post.content }}</p>
 <p><i>Publicado el {{ post.published_date }}</i></p>
 <a href="/">Volver a la portada</a>
+
+{% else %}
+    <p>No hay entrada.</p>
+{% endif %}
     
 {% endblock %}
