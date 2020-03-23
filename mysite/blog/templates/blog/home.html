@@ -6,16 +6,23 @@
   <p>Publico puras <em>weas</em>, weas pulentas.</p>
 
 <h2>Entradas recientes</h2>
-
-    <ul>
-        <li>
-            {% for post in posts %}
-            <div>
-                <h3>{{ post.title }}</h3>
-                <p><a href="/{{ post.published_date.year }}/{{ post.published_date.month }}/{{ post.id }}">Leer</a></p>
-            </div>
-            {% endfor %}
-        </li>
-    </ul>
-
+    {% for post in posts %}
+    <table class="table">
+        <tr>
+            <th scope="col">Titulo</th>
+            <th scope="col">Detalle</th>
+            <th scope="col">Acción</th>
+        </tr>
+        <tr>
+            <th scope="row">{{ post.title }}</th>
+            <td>
+                {{ post.content }}    
+            </td>
+            <td>
+                <a href="/{{ post.published_date.year }}/{{ post.published_date.month }}/{{ post.id }}">Ver post</a>
+            </td>
+        </tr>
+    </table>
+    {% endfor %}
+    
 {% endblock %}
