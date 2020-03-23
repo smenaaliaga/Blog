@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portada</title>
-</head>
-<body>
-    <h1>Skynet!</h1>
-    <div>
-        Hora de visita : {{ date }}
-    </div>
+{% extends "blog\base_generic.html" %}
+
+{% block content %}
+<h1>Blog del Choripan</h1>
+
+  <p>Publico puras <em>weas</em>, weas pulentas.</p>
+
+<h2>Entradas recientes</h2>
+
     <ul>
         <li>
             {% for post in posts %}
@@ -20,5 +17,5 @@
             {% endfor %}
         </li>
     </ul>
-</body>
-</html>
+
+{% endblock %}
