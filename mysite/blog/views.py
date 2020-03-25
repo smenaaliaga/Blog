@@ -4,7 +4,7 @@ import datetime, calendar
 
 def home(request) :
     posts = Post.objects.all()
-    date = datetime.datetime.now() 
+    date = datetime.datetime.now()
     return render(request, "blog/home.html", {'posts' : posts, 'date' : date})
 
 def year_posts(request, year) : 
