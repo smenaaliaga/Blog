@@ -2,7 +2,15 @@
 
 {% block content %}
 
+{% if month %}
+<h3>Entradas {{ month_name }} del año {{ year }}</h3>
+{% else %}
+{% if year %}
+<h3>Entradas {{ year }}</h3>
+{% else %}
 <h3>Entradas recientes</h3>
+{% endif %}
+{% endif %}
 
     <table class="table">
         <tr>

@@ -9,12 +9,12 @@ def home(request) :
 
 def year_posts(request, year) : 
     posts = Post.objects.all().filter(published_date__year = year)
-    return render(request, "blog/year_posts.html", {'posts' : posts, 'year' : year})
+    return render(request, "blog/home.html", {'posts' : posts, 'year' : year})
 
 def month_posts(request, year, month) : 
     posts = Post.objects.all().filter(published_date__year = year, published_date__month = month)
     month_name = month_es(month)
-    return render(request, "blog/month_posts.html", {'posts' : posts, 'year' : year, 'month' : month, 'month_name' : month_name})
+    return render(request, "blog/home.html", {'posts' : posts, 'year' : year, 'month' : month, 'month_name' : month_name})
 
 def detail_posts(request, year, month, id) :
     try :
