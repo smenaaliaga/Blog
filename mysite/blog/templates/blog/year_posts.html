@@ -5,14 +5,14 @@
 <h3>Entradas {{ year }}</h3>
 
     {% if posts %}
-
-    {% for post in posts %}
+   
     <table class="table">
         <tr>
             <th scope="col">Titulo</th>
             <th scope="col">Detalle</th>
             <th scope="col">Acción</th>
         </tr>
+        {% for post in posts %}
         <tr>
             <th scope="row">{{ post.title }}</th>
             <td>
@@ -22,8 +22,8 @@
                 <p><a href="/{{ post.published_date.year }}/{{ post.published_date.month }}/{{ post.id }}">Ver post</a></p>
             </td>
         </tr>
+        {% endfor %}
     </table>
-    {% endfor %}
 
     {% else %}
         <p>No hay entradas.</p>

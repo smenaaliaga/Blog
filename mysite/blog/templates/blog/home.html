@@ -4,13 +4,13 @@
 
 <h3>Entradas recientes</h3>
 
-    {% for post in posts %}
     <table class="table">
         <tr>
             <th scope="col">Titulo</th>
             <th scope="col">Detalle</th>
             <th scope="col">Acción</th>
         </tr>
+        {% for post in posts %}
         <tr>
             <th scope="row">{{ post.title }}</th>
             <td>
@@ -20,7 +20,7 @@
                 <a href="/{{ post.published_date.year }}/{{ post.published_date.month }}/{{ post.id }}">Ver post</a>
             </td>
         </tr>
+        {% endfor %}
     </table>
-    {% endfor %}
     
 {% endblock %}

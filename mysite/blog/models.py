@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.views import generic
 
 STATUS = (
     (0, "Oculto"),
@@ -24,7 +25,7 @@ class Post(models.Model) :
     published_date = models.DateTimeField(default=timezone.now, verbose_name="Fecha publicación")
     status = models.IntegerField(choices=STATUS, default=0, verbose_name="Estado")
 
-    def publish(self):
+    def publish(self) :
         self.published_date = timezone.now()
         self.save()
     
